@@ -1,11 +1,5 @@
 <template>
 	<div class="home">
-		TEST
+		To get started...
 	</div>
 </template>
-
-<script>
-	export default {
-		name: "home"
-	};
-</script>
