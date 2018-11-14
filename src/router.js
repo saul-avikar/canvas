@@ -8,8 +8,9 @@ export default new Router({
 	base: process.env.BASE_URL,
 	routes: [
 		{
-			path: "/:image",
+			path: "/:name",
 			name: "image",
+			props: true,
 			component: () => import(/* webpackChunkName: "image" */ "./views/Image.vue")
 		},
 		{

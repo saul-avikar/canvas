@@ -7,9 +7,27 @@
 		clipped-right
 		clipped-left
 	>
-		<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-		<v-toolbar-title>Toolbar</v-toolbar-title>
-		<v-spacer></v-spacer>
-		<v-toolbar-side-icon @click.stop="drawerRight = !drawerRight"></v-toolbar-side-icon>
+		<toolbar-menu />
+
+		<v-toolbar-title v-for="file of files">
+			{{ file.name }}
+		</v-toolbar-title>
 	</v-toolbar>
 </template>
+
+<script>
+	import { mapState } from "vuex";
+	import ToolbarMenu from "@/components/toolbar-menu.vue";
+
+	export default {
+		computed: {
+			...mapState({
+				files: state => state.files.files
+			})
+		},
+
+		components: {
+			ToolbarMenu
+		}
+	};
+</script>
