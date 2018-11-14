@@ -7,7 +7,7 @@
 		clipped-right
 		clipped-left
 	>
-		<toolbar-menu />
+		<toolbar-menu @new-file="newFileDialog = true" />
 
 		<v-toolbar-title v-for="file of files">
 			{{ file.name }}
@@ -17,9 +17,15 @@
 
 <script>
 	import { mapState } from "vuex";
+
 	import ToolbarMenu from "@/components/toolbar-menu.vue";
+	import NewFileDialog from "@/components/new-file-dialog";
 
 	export default {
+		data: () => ({
+			newFileDialog: false
+		}),
+
 		computed: {
 			...mapState({
 				files: state => state.files.files
@@ -27,7 +33,8 @@
 		},
 
 		components: {
-			ToolbarMenu
+			ToolbarMenu,
+			NewFileDialog
 		}
 	};
 </script>

@@ -1,10 +1,10 @@
 <template>
 	<v-app>
-		<a-menu-right />
+		<menu-right />
 
 		<a-toolbar />
 
-		<a-menu-left />
+		<menu-left />
 
 		<a-page />
 
@@ -14,10 +14,11 @@
 
 <script>
 	import AToolbar from "@/components/app-toolbar";
-	import AMenuLeft from "@/components/app-menu-left";
 	import APage from "@/components/app-page";
-	import AMenuRight from "@/components/app-menu-right";
 	import AFooter from "@/components/app-footer";
+
+	import MenuRight from "@/components/menu-right";
+	import MenuLeft from "@/components/menu-left";
 
 	export default {
 		data: () => ({
@@ -27,9 +28,9 @@
 
 		components: {
 			AToolbar,
-			AMenuLeft,
+			MenuLeft,
 			APage,
-			AMenuRight,
+			MenuRight,
 			AFooter
 		}
 	};
