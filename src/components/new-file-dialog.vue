@@ -21,16 +21,40 @@
 				<v-layout row wrap>
 					<v-flex xs12 sm6>
 						<v-layout row wrap>
-							<v-text-field label="Title" required />
+							<v-text-field
+								v-model="title"
+								label="Title"
+								required
+							/>
 
-							<v-text-field label="Height" required />
+							<v-text-field
+								v-model="height"
+								type="number"
+								label="Height"
+								required
+							/>
 
-							<v-text-field label="Width" required />
+							<v-text-field
+								v-model="width"
+								type="number"
+								label="Width"
+								required
+							/>
+
+							<v-select
+								label="background"
+								:items="['White', 'Transparency']"
+								v-model="background"
+							/>
 						</v-layout>
 					</v-flex>
 
 					<v-flex xs12 sm6>
-						<new-file-preview />
+						<new-file-preview
+							:height="height"
+							:width="width"
+							:background="background"
+						/>
 					</v-flex>
 				</v-layout>
 			</v-container>
@@ -55,6 +79,13 @@
 	import NewFilePreview from "@/components/new-file-preview";
 
 	export default {
+		data: () => ({
+			title: "",
+			height: "400",
+			width: "640",
+			background: "White"
+		}),
+
 		methods: {
 			closeDialog () {
 				this.$emit("close");
